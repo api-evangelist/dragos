@@ -1,0 +1,43 @@
+generated: '2026-07-18'
+method: searched
+source: openapi/dragos-worldview-openapi-original.json
+docs: https://portal.dragos.com/api/v1/doc/index.html
+summary:
+  types:
+  - apiKey
+  - oauth2
+  api_key_in:
+  - header
+  oauth2_flows:
+  - clientCredentials
+schemes:
+- name: api_token
+  type: apiKey
+  in: header
+  parameter: API-Token
+  description: API Access Token
+  sources:
+  - openapi/dragos-worldview-openapi-original.json
+- name: api_secret
+  type: apiKey
+  in: header
+  parameter: API-Secret
+  description: API Secret Key
+  sources:
+  - openapi/dragos-worldview-openapi-original.json
+- name: npe_token
+  type: apiKey
+  in: header
+  parameter: Authorization
+  description: NPE Token
+  sources:
+  - openapi/dragos-worldview-openapi-original.json
+- name: platform_oauth2
+  type: oauth2
+  api: platform-sitestore
+  description: Dragos Platform SiteStore v2 API accepts an OAuth 2.0 Bearer (JWT) access token (recommended, dynamic and expiring) or a static API key. Access is role-based (e.g. asset:read to read Asset data).
+  sources:
+  - https://docs.ctpx.secureworks.com/integration/connectNetwork/dragos/
+apis:
+  worldview: apiKey headers (API-Token + API-Secret); NPE token via Authorization header
+  platform-sitestore: OAuth 2.0 Bearer JWT (recommended) or static API key, role-based (asset:read)
