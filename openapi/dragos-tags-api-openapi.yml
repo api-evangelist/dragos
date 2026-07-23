@@ -1,0 +1,86 @@
+openapi: 3.0.1
+info:
+  title: Dragos WorldView Indicators Tags API
+  version: v1
+  description: API access to the WorldView Reports and Indicators
+  contact:
+    name: the developer
+    email: support@dragos.com
+tags:
+- name: Tags
+paths:
+  /api/v1/tags:
+    get:
+      summary: Returns a list of all tags
+      tags:
+      - Tags
+      security:
+      - api_token: []
+        api_secret: []
+        npe_token: []
+      parameters:
+      - name: page
+        in: query
+        description: Page number (default 1)
+        required: false
+        schema:
+          type: string
+      - name: page_size
+        in: query
+        description: Page size (default 100) (max 500)
+        required: false
+        schema:
+          type: string
+      - name: tag_type
+        in: query
+        description: Tag type
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+  /api/v1/tags/csv:
+    get:
+      summary: Returns tags in CSV format
+      tags:
+      - Tags
+      security:
+      - api_token: []
+        api_secret: []
+        npe_token: []
+      parameters:
+      - name: tag_type
+        in: query
+        description: Tag type
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+components:
+  securitySchemes:
+    api_token:
+      description: API Access Token
+      in: header
+      name: API-Token
+      type: apiKey
+    api_secret:
+      description: API Secret Key
+      in: header
+      name: API-Secret
+      type: apiKey
+    npe_token:
+      description: NPE Token
+      in: header
+      name: Authorization
+      type: apiKey
