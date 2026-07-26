@@ -1,0 +1,20 @@
+# Dragos
+
+> Dragos is an industrial (OT/ICS) cybersecurity company. Its public developer surface is the WorldView threat-intelligence API, which exposes Dragos WorldView reports and indicators of compromise (IP, domain, hostname, filename, MD5/SHA1/SHA256) for OT/ICS threats, plus STIX 2.0 and CSV exports. The Dragos Platform additionally offers a customer-gated SiteStore v2 API (assets, alerts) for tenants of its OT monitoring platform.
+
+## APIs
+
+- [Dragos WorldView API reference](https://portal.dragos.com/api/v1/doc/index.html): Threat-intelligence indicators, products/reports, and tags. Auth via API-Token + API-Secret headers. Read-only, rate-limited.
+- [Dragos Customer Portal](https://portal.dragos.com/): Portal where API keys are generated and WorldView products are browsed.
+
+## Specs
+
+- [WorldView OpenAPI 3.0.1 (mirror)](https://portal.dragos.com/api/v1/doc/index.html): OpenAPI captured in this repo at openapi/dragos-worldview-openapi-original.json.
+
+## Docs
+
+- [Documentation portal](https://docs.dragos.com/): Product and API documentation.
+- [Reporting security issues to Dragos](https://www.dragos.com/reporting-security-issues-to-dragos/): PSIRT vulnerability disclosure policy.
+- [Security program](https://www.dragos.com/security-program/): ISO/IEC 27001:2022 certified, SOC 2 Type II under NDA.
+- [GitHub organization](https://github.com/dragosinc): Official Python SDK (customer-portal-sdks).
+- [Blog](https://www.dragos.com/blog/): Product and threat-intelligence updates.

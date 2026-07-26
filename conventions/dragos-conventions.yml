@@ -1,0 +1,40 @@
+generated: '2026-07-18'
+method: searched
+source: https://portal.dragos.com/api/v1/doc/index.html
+apis:
+- worldview
+- platform-sitestore
+authentication:
+  worldview:
+    style: apiKey request headers
+    headers: [API-Token, API-Secret]
+    alt: Authorization header (NPE token) for non-person entities
+    key_management: API credentials generated on the User Profile page of portal.dragos.com
+    ref: authentication/dragos-authentication.yml
+  platform_sitestore:
+    style: OAuth 2.0 Bearer (JWT) access token or static API key
+    recommended: OAuth 2.0 Bearer tokens (dynamic, expiring, refreshable) over static API keys
+    authorization: role-based; e.g. asset:read required to read Asset data
+idempotency:
+  supported: false
+  note: The WorldView API is read-only (GET only); no idempotency-key contract is documented.
+pagination:
+  style: page-number
+  params: [page, page_size]
+  defaults: page=1, page_size=500 (max 1000)
+  applies_to: [indicators, products, tags]
+filtering:
+  common_params: [updated_after, value, type, "serial[]", "tags[]"]
+  updated_after_format: UTC timestamp YYYY-mm-dd (optionally HH:mm:ss)
+formats:
+  export: [json, "STIX 2.0 (.stix2)", csv]
+rate_limiting:
+  signaled_by: HTTP 429 Too Many Requests
+  guidance: Dragos recommends a run frequency of no more than once every 6 hours; rate-limit details on the User Profile page of portal.dragos.com.
+  ref: null
+versioning:
+  scheme: uri-path
+  ref: lifecycle/dragos-lifecycle.yml
+error_handling:
+  style: plain HTTP status codes (401/403/404/429)
+  ref: errors/dragos-problem-types.yml

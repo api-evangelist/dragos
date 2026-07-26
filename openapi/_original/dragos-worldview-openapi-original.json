@@ -1,0 +1,675 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Dragos WorldView API",
+    "version": "v1",
+    "description": "API access to the WorldView Reports and Indicators",
+    "contact": {
+      "name": "the developer",
+      "email": "support@dragos.com"
+    }
+  },
+  "paths": {
+    "/api/v1/indicators": {
+      "get": {
+        "summary": "Returns a paginated list of indicators",
+        "tags": [
+          "Indicators"
+        ],
+        "security": [
+          {
+            "api_token": [
+
+            ],
+            "api_secret": [
+
+            ],
+            "npe_token": [
+
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "exclude_suspect_domain",
+            "in": "query",
+            "description": "Exclude indicators that are only associated with Suspect Domain Reports",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number (default 1)",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "description": "Page size (default 500) (must be less than 1001)",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "updated_after",
+            "in": "query",
+            "description": "UTC timestamp in YYYY-mm-dd (optionally with HH:mm:ss) to filter to recent indicators",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "value",
+            "in": "query",
+            "description": "Search for indicators that match a specific value",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "Search for indicators of a specific type",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "domain",
+                "filename",
+                "hostname",
+                "ip",
+                "md5",
+                "sha1",
+                "sha256"
+              ]
+            }
+          },
+          {
+            "name": "serial[]",
+            "in": "query",
+            "description": "Search for indicators matching a report serial",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "example": ""
+              }
+            }
+          },
+          {
+            "name": "tags[]",
+            "in": "query",
+            "description": "Search for indicators matching tag(s) text",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "example": ""
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "429": {
+            "description": "Too Many Requests"
+          }
+        }
+      }
+    },
+    "/api/v1/indicators.stix2": {
+      "get": {
+        "summary": "Returns a paginated stix2 bundle of indicators",
+        "tags": [
+          "Indicators"
+        ],
+        "security": [
+          {
+            "api_token": [
+
+            ],
+            "api_secret": [
+
+            ],
+            "npe_token": [
+
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number (default 1)",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "description": "Page size (default 500) (must be less than 1001)",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "updated_after",
+            "in": "query",
+            "description": "UTC timestamp in YYYY-mm-dd (optionally with HH:mm:ss) to filter to recent indicators",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "value",
+            "in": "query",
+            "description": "Search for indicators that match a specific value",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "Search for indicators of a specific type",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "domain",
+                "filename",
+                "hostname",
+                "ip",
+                "md5",
+                "sha1",
+                "sha256"
+              ]
+            }
+          },
+          {
+            "name": "serial[]",
+            "in": "query",
+            "description": "Search for indicators matching a report serial",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "example": ""
+              }
+            }
+          },
+          {
+            "name": "tags[]",
+            "in": "query",
+            "description": "Search for indicators matching tag(s) text",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "example": ""
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "headers": {
+              "X-Page": {
+                "type": "integer",
+                "description": "Page number"
+              },
+              "X-Page-Size": {
+                "type": "integer",
+                "description": "How many indicators per page"
+              },
+              "X-Total": {
+                "type": "integer",
+                "description": "Total indicator count"
+              },
+              "X-Total-Pages": {
+                "type": "integer",
+                "description": "How many pages of indicators"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/indicators/stix2": {
+      "get": {
+        "summary": "Returns a cached stix2 bundle of the last 12 months of indicators (not available to trial users)",
+        "tags": [
+          "Indicators"
+        ],
+        "security": [
+          {
+            "api_token": [
+
+            ],
+            "api_secret": [
+
+            ],
+            "npe_token": [
+
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/products": {
+      "get": {
+        "summary": "Returns a list of all products",
+        "tags": [
+          "Products"
+        ],
+        "security": [
+          {
+            "api_token": [
+
+            ],
+            "api_secret": [
+
+            ],
+            "npe_token": [
+
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number (default 1)",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "description": "Page size (default 50) (must be less than 501)",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sort_by",
+            "in": "query",
+            "description": "Sort returned products (default release_date)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "title",
+                "threat",
+                "tlp",
+                "release_date"
+              ]
+            }
+          },
+          {
+            "name": "sort_desc",
+            "in": "query",
+            "description": "Page desc (default false)",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "updated_after",
+            "in": "query",
+            "description": "UTC timestamp in YYYY-mm-dd (optionally with HH:mm:ss) to filter to recently updated products",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "released_after",
+            "in": "query",
+            "description": "UTC timestamp in YYYY-mm-dd (optionally with HH:mm:ss) to filter to recently released products",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "serials[]",
+            "in": "query",
+            "description": "Filter reports from an array of serials",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "example": ""
+              }
+            }
+          },
+          {
+            "name": "indicator",
+            "in": "query",
+            "description": "Filter reports related to a given indicator (exact match only)",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "429": {
+            "description": "Too Many Requests"
+          }
+        }
+      }
+    },
+    "/api/v1/products/{id}": {
+      "get": {
+        "summary": "Returns the metadata of a product",
+        "tags": [
+          "Products"
+        ],
+        "security": [
+          {
+            "api_token": [
+
+            ],
+            "api_secret": [
+
+            ],
+            "npe_token": [
+
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Product serial number",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "429": {
+            "description": "Too Many Requests"
+          }
+        }
+      }
+    },
+    "/api/v1/products/{id}/csv": {
+      "get": {
+        "summary": "Returns the CSV file for the indicators related to a given serial",
+        "tags": [
+          "Products"
+        ],
+        "security": [
+          {
+            "api_token": [
+
+            ],
+            "api_secret": [
+
+            ],
+            "npe_token": [
+
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Product serial number",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "429": {
+            "description": "Too Many Requests"
+          }
+        }
+      }
+    },
+    "/api/v1/products/{id}/stix2": {
+      "get": {
+        "summary": "Returns the STIX2.0 JSON bundle for the indicators related to a given serial",
+        "tags": [
+          "Products"
+        ],
+        "security": [
+          {
+            "api_token": [
+
+            ],
+            "api_secret": [
+
+            ],
+            "npe_token": [
+
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Product serial number",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "429": {
+            "description": "Too Many Requests"
+          }
+        }
+      }
+    },
+    "/api/v1/tags": {
+      "get": {
+        "summary": "Returns a list of all tags",
+        "tags": [
+          "Tags"
+        ],
+        "security": [
+          {
+            "api_token": [
+
+            ],
+            "api_secret": [
+
+            ],
+            "npe_token": [
+
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number (default 1)",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "description": "Page size (default 100) (max 500)",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "tag_type",
+            "in": "query",
+            "description": "Tag type",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/v1/tags/csv": {
+      "get": {
+        "summary": "Returns tags in CSV format",
+        "tags": [
+          "Tags"
+        ],
+        "security": [
+          {
+            "api_token": [
+
+            ],
+            "api_secret": [
+
+            ],
+            "npe_token": [
+
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "tag_type",
+            "in": "query",
+            "description": "Tag type",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "api_token": {
+        "description": "API Access Token",
+        "in": "header",
+        "name": "API-Token",
+        "type": "apiKey"
+      },
+      "api_secret": {
+        "description": "API Secret Key",
+        "in": "header",
+        "name": "API-Secret",
+        "type": "apiKey"
+      },
+      "npe_token": {
+        "description": "NPE Token",
+        "in": "header",
+        "name": "Authorization",
+        "type": "apiKey"
+      }
+    }
+  }
+}

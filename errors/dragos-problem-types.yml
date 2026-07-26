@@ -1,0 +1,39 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/dragos-worldview-openapi-original.json
+format: http-status
+note: WorldView error responses are plain HTTP status codes (not application/problem+json). Derived from the OpenAPI response declarations across all operations.
+problems:
+- status: 401
+  title: Unauthorized
+  meaning: Missing or invalid API-Token / API-Secret credentials.
+  remediation: Generate valid API credentials on the User Profile page of portal.dragos.com and send them in the API-Token and API-Secret headers.
+  source_operations:
+  - GET /api/v1/indicators
+  - GET /api/v1/products
+  - GET /api/v1/products/{id}
+  - GET /api/v1/tags
+- status: 403
+  title: Forbidden
+  meaning: Authenticated but not permitted (e.g. trial user requesting a restricted resource such as the cached 12-month STIX2 bundle).
+  remediation: Confirm the account tier/entitlement; some endpoints are unavailable to trial users.
+  source_operations:
+  - GET /api/v1/indicators
+  - GET /api/v1/products
+  - GET /api/v1/tags
+- status: 404
+  title: Not Found
+  meaning: The requested product serial/id does not exist.
+  remediation: Verify the product id/serial value.
+  source_operations:
+  - GET /api/v1/products/{id}
+  - GET /api/v1/products/{id}/csv
+  - GET /api/v1/products/{id}/stix2
+- status: 429
+  title: Too Many Requests
+  meaning: API rate limit exceeded. Dragos recommends a run frequency of no more than once every 6 hours.
+  remediation: Back off and retry later; stagger jobs (e.g. random minute). Rate-limit details are shown on the User Profile page of portal.dragos.com.
+  source_operations:
+  - GET /api/v1/indicators
+  - GET /api/v1/products
+  - GET /api/v1/products/{id}

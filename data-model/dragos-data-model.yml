@@ -1,0 +1,37 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/dragos-worldview-openapi-original.json
+note: Derived from WorldView API operations and parameters; the OpenAPI declares no components.schemas, so entities are inferred from the resource paths and filter parameters.
+entities:
+- name: Indicator
+  description: An OT/ICS indicator of compromise.
+  identifier: value
+  fields: [value, type, updated_after, exclude_suspect_domain]
+  types: [domain, filename, hostname, ip, md5, sha1, sha256]
+  paths: [/api/v1/indicators, /api/v1/indicators.stix2, /api/v1/indicators/stix2]
+- name: Product
+  description: A WorldView intelligence report, addressed by serial/id.
+  identifier: id (serial)
+  fields: [id, serials, released_after, updated_after, sort_by, sort_desc, indicator]
+  paths: ['/api/v1/products', '/api/v1/products/{id}', '/api/v1/products/{id}/csv', '/api/v1/products/{id}/stix2']
+- name: Tag
+  description: A classification tag applied to indicators and products.
+  identifier: name
+  fields: [tag_type]
+  paths: [/api/v1/tags, /api/v1/tags/csv]
+relationships:
+- from: Product
+  to: Indicator
+  type: has_many
+  via: serial
+  evidence: /api/v1/products/{id}/csv and /api/v1/products/{id}/stix2 return the indicators for a product serial; indicators can be filtered by serial[].
+- from: Indicator
+  to: Tag
+  type: has_many
+  via: "tags[]"
+  evidence: indicators are filterable by tags[].
+- from: Product
+  to: Tag
+  type: has_many
+  via: tags
+  evidence: tags classify reports; tags endpoint supports tag_type.

@@ -1,0 +1,13 @@
+generated: '2026-07-18'
+method: generated
+skills:
+- file: dragos-worldview-indicators.md
+  name: Pull OT threat indicators from Dragos WorldView
+  api: openapi/dragos-worldview-openapi-original.json
+  operations:
+  - GET /api/v1/indicators
+  - GET /api/v1/indicators.stix2
+  - GET /api/v1/products
+  - GET /api/v1/products/{id}
+  - GET /api/v1/products/{id}/stix2
+  - GET /api/v1/tags

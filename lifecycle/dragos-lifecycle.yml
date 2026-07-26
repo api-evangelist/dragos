@@ -1,0 +1,28 @@
+generated: '2026-07-18'
+method: searched
+source: https://www.dragos.com/blog/introducing-dragos-platform-3-0-the-fastest-path-to-value-for-ot-cybersecurity
+apis:
+- api: worldview
+  versioning:
+    scheme: uri-path
+    current: v1
+    base_path: /api/v1
+- api: platform-sitestore
+  versioning:
+    scheme: uri-path
+    current: v2
+    base_path: /api/v2
+    docs: SiteStore v2 API introduced with Dragos Platform 3.0.
+deprecation:
+  policy: The SiteStore 1.1 API remains available for a limited time for backward compatibility after the SiteStore v2 API shipped with Dragos Platform 3.0; consumers are directed to migrate to v2.
+  deprecated_versions:
+  - platform-sitestore v1.1
+  source: https://www.dragos.com/blog/introducing-dragos-platform-3-0-the-fastest-path-to-value-for-ot-cybersecurity
+security_assurance:
+  policy: Dragos Product Security Assurance and Vulnerability Disclosure Policy; external penetration testing on all major product releases (at least annually).
+  source: https://www.dragos.com/security-program/
+status_page:
+  url: https://dragos.statuspage.io
+  public: false
+  note: A Statuspage instance exists at dragos.statuspage.io but requires sign-in; not treated as a public status page.
+deprecated_operations: []

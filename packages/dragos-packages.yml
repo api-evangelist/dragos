@@ -1,0 +1,12 @@
+generated: '2026-07-18'
+method: searched
+source: https://github.com/dragosinc/customer-portal-sdks
+packages:
+- language: python
+  registry: github
+  name: dragosinc/customer-portal-sdks
+  url: https://github.com/dragosinc/customer-portal-sdks
+  install: pip install git+https://github.com/dragosinc/customer-portal-sdks.git#subdirectory=python
+  official: true
+  description: Official high-level Python interface for the Dragos Customer Portal / WorldView API (indicators, products, tags). Distributed via GitHub source; not published to PyPI.
+notes: No first-party client library was found on PyPI, RubyGems, npm, Maven Central, NuGet, pkg.go.dev, Packagist, or crates.io. The only first-party SDK is the Python client in the dragosinc GitHub organization, installed from source.

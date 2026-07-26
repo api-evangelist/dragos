@@ -1,0 +1,18 @@
+{
+  "provider": "dragos",
+  "sources": [
+    "dragos-indicators-api-openapi.yml",
+    "dragos-products-api-openapi.yml",
+    "dragos-tags-api-openapi.yml"
+  ],
+  "outputs": [
+    "dragos-indicators-api-openapi.yml",
+    "dragos-products-api-openapi.yml",
+    "dragos-tags-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

@@ -1,0 +1,36 @@
+generated: '2026-07-18'
+method: derived
+status: candidate
+source: openapi/dragos-worldview-openapi-original.json
+note: No official hosted/remote Dragos MCP server was found (no @modelcontextprotocol package, no entry in public MCP registries). This is a candidate tool list derived from the WorldView API operations to seed a future MCP server.
+server:
+  name: dragos-worldview
+  transport: http
+tools:
+- name: list_indicators
+  description: Return a paginated list of OT/ICS threat indicators (IP, domain, hostname, filename, md5, sha1, sha256), filterable by type, value, tag, serial, and updated_after.
+  source_operation: openapi/dragos-worldview-openapi-original.json#GET /api/v1/indicators
+- name: list_indicators_stix2
+  description: Return a paginated STIX 2.0 bundle of indicators.
+  source_operation: openapi/dragos-worldview-openapi-original.json#GET /api/v1/indicators.stix2
+- name: get_cached_indicators_stix2
+  description: Return a cached STIX 2.0 bundle of the last 12 months of indicators (not available to trial users).
+  source_operation: openapi/dragos-worldview-openapi-original.json#GET /api/v1/indicators/stix2
+- name: list_products
+  description: Return a list of all WorldView intelligence products (reports).
+  source_operation: openapi/dragos-worldview-openapi-original.json#GET /api/v1/products
+- name: get_product
+  description: Return the metadata of a WorldView product by id/serial.
+  source_operation: openapi/dragos-worldview-openapi-original.json#GET /api/v1/products/{id}
+- name: get_product_indicators_csv
+  description: Return the CSV file of indicators for a given product serial.
+  source_operation: openapi/dragos-worldview-openapi-original.json#GET /api/v1/products/{id}/csv
+- name: get_product_indicators_stix2
+  description: Return the STIX 2.0 JSON bundle of indicators for a given product serial.
+  source_operation: openapi/dragos-worldview-openapi-original.json#GET /api/v1/products/{id}/stix2
+- name: list_tags
+  description: Return a list of all indicator/report tags.
+  source_operation: openapi/dragos-worldview-openapi-original.json#GET /api/v1/tags
+- name: list_tags_csv
+  description: Return tags in CSV format.
+  source_operation: openapi/dragos-worldview-openapi-original.json#GET /api/v1/tags/csv

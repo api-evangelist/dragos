@@ -1,0 +1,15 @@
+generated: '2026-07-18'
+method: searched
+source: https://www.dragos.com/blog/
+scheme: product-release
+current_version: Dragos Platform 3.0
+entries:
+- version: Dragos Platform 3.0
+  date: '2024'
+  breaking: false
+  highlights:
+  - Introduced the SiteStore v2 API (/api/v2) for assets and platform data.
+  - SiteStore 1.1 API retained for a limited time for backward compatibility.
+  - Repositioned as "the fastest path to value for OT cybersecurity."
+  source: https://www.dragos.com/blog/introducing-dragos-platform-3-0-the-fastest-path-to-value-for-ot-cybersecurity
+note: Dragos does not publish a single dated developer API changelog; entries are derived from product-release announcements on the Dragos blog. WorldView API is versioned at v1.

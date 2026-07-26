@@ -1,0 +1,21 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Dragos WorldView API
+  version: 1.0.0
+extends: openapi/dragos-worldview-openapi-original.json
+actions:
+- target: $.info
+  update:
+    x-apievangelist-provider: dragos
+    x-apievangelist-api: worldview
+    x-apievangelist-category: threat-intelligence
+    x-apievangelist-rate-limited: true
+- target: $.servers
+  update:
+  - url: https://portal.dragos.com
+    description: Dragos Customer Portal (primary WorldView host)
+  - url: https://intel.dragos.com
+    description: Dragos intelligence host (mirror)
+- target: $.info
+  update:
+    x-apievangelist-auth: API-Token + API-Secret request headers (apiKey)
