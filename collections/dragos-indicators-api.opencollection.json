@@ -1,0 +1,163 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Dragos WorldView Indicators API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Indicators",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Returns a paginated list of indicators",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/indicators",
+            "params": [
+              {
+                "name": "exclude_suspect_domain",
+                "value": "",
+                "type": "query",
+                "description": "Exclude indicators that are only associated with Suspect Domain Reports"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number (default 1)"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Page size (default 500) (must be less than 1001)"
+              },
+              {
+                "name": "updated_after",
+                "value": "",
+                "type": "query",
+                "description": "UTC timestamp in YYYY-mm-dd (optionally with HH:mm:ss) to filter to recent indicators"
+              },
+              {
+                "name": "value",
+                "value": "",
+                "type": "query",
+                "description": "Search for indicators that match a specific value"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Search for indicators of a specific type"
+              },
+              {
+                "name": "serial[]",
+                "value": "",
+                "type": "query",
+                "description": "Search for indicators matching a report serial"
+              },
+              {
+                "name": "tags[]",
+                "value": "",
+                "type": "query",
+                "description": "Search for indicators matching tag(s) text"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Token",
+              "value": "{{API-Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns a paginated list of indicators"
+        },
+        {
+          "info": {
+            "name": "Returns a paginated stix2 bundle of indicators",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/indicators.stix2",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number (default 1)"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Page size (default 500) (must be less than 1001)"
+              },
+              {
+                "name": "updated_after",
+                "value": "",
+                "type": "query",
+                "description": "UTC timestamp in YYYY-mm-dd (optionally with HH:mm:ss) to filter to recent indicators"
+              },
+              {
+                "name": "value",
+                "value": "",
+                "type": "query",
+                "description": "Search for indicators that match a specific value"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Search for indicators of a specific type"
+              },
+              {
+                "name": "serial[]",
+                "value": "",
+                "type": "query",
+                "description": "Search for indicators matching a report serial"
+              },
+              {
+                "name": "tags[]",
+                "value": "",
+                "type": "query",
+                "description": "Search for indicators matching tag(s) text"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Token",
+              "value": "{{API-Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns a paginated stix2 bundle of indicators"
+        },
+        {
+          "info": {
+            "name": "Returns a cached stix2 bundle of the last 12 months of indicators (not available to trial users)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/indicators/stix2",
+            "auth": {
+              "type": "apikey",
+              "key": "API-Token",
+              "value": "{{API-Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns a cached stix2 bundle of the last 12 months of indicators (not available to trial users)"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

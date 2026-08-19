@@ -1,0 +1,160 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Dragos WorldView Indicators Products API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Products",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Returns a list of all products",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/products",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number (default 1)"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Page size (default 50) (must be less than 501)"
+              },
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query",
+                "description": "Sort returned products (default release_date)"
+              },
+              {
+                "name": "sort_desc",
+                "value": "",
+                "type": "query",
+                "description": "Page desc (default false)"
+              },
+              {
+                "name": "updated_after",
+                "value": "",
+                "type": "query",
+                "description": "UTC timestamp in YYYY-mm-dd (optionally with HH:mm:ss) to filter to recently updated products"
+              },
+              {
+                "name": "released_after",
+                "value": "",
+                "type": "query",
+                "description": "UTC timestamp in YYYY-mm-dd (optionally with HH:mm:ss) to filter to recently released products"
+              },
+              {
+                "name": "serials[]",
+                "value": "",
+                "type": "query",
+                "description": "Filter reports from an array of serials"
+              },
+              {
+                "name": "indicator",
+                "value": "",
+                "type": "query",
+                "description": "Filter reports related to a given indicator (exact match only)"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Token",
+              "value": "{{API-Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns a list of all products"
+        },
+        {
+          "info": {
+            "name": "Returns the metadata of a product",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/products/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Product serial number"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Token",
+              "value": "{{API-Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns the metadata of a product"
+        },
+        {
+          "info": {
+            "name": "Returns the CSV file for the indicators related to a given serial",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/products/:id/csv",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Product serial number"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Token",
+              "value": "{{API-Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns the CSV file for the indicators related to a given serial"
+        },
+        {
+          "info": {
+            "name": "Returns the STIX2.0 JSON bundle for the indicators related to a given serial",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/products/:id/stix2",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Product serial number"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Token",
+              "value": "{{API-Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns the STIX2.0 JSON bundle for the indicators related to a given serial"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

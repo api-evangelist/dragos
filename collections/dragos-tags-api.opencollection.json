@@ -1,0 +1,80 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Dragos WorldView Indicators Tags API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Tags",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Returns a list of all tags",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/tags",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number (default 1)"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Page size (default 100) (max 500)"
+              },
+              {
+                "name": "tag_type",
+                "value": "",
+                "type": "query",
+                "description": "Tag type"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Token",
+              "value": "{{API-Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns a list of all tags"
+        },
+        {
+          "info": {
+            "name": "Returns tags in CSV format",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/tags/csv",
+            "params": [
+              {
+                "name": "tag_type",
+                "value": "",
+                "type": "query",
+                "description": "Tag type"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "API-Token",
+              "value": "{{API-Token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns tags in CSV format"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,753 @@
+{
+  "item": [
+    {
+      "id": "d4a37cd4-5489-4682-b9bf-a4cc6fae6ed4",
+      "name": "Indicators",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3dfa1c5f-88b6-470b-8b4f-01f153411fe2",
+          "name": "Returns a paginated list of indicators",
+          "request": {
+            "name": "Returns a paginated list of indicators",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "indicators"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "exclude_suspect_domain",
+                  "value": "<boolean>",
+                  "description": "Exclude indicators that are only associated with Suspect Domain Reports"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<string>",
+                  "description": "Page number (default 1)"
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<string>",
+                  "description": "Page size (default 500) (must be less than 1001)"
+                },
+                {
+                  "disabled": false,
+                  "key": "updated_after",
+                  "value": "<string>",
+                  "description": "UTC timestamp in YYYY-mm-dd (optionally with HH:mm:ss) to filter to recent indicators"
+                },
+                {
+                  "disabled": false,
+                  "key": "value",
+                  "value": "<string>",
+                  "description": "Search for indicators that match a specific value"
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "Search for indicators of a specific type"
+                },
+                {
+                  "disabled": false,
+                  "key": "serial[]",
+                  "value": "<string>",
+                  "description": "Search for indicators matching a report serial"
+                },
+                {
+                  "disabled": false,
+                  "key": "serial[]",
+                  "value": "<string>",
+                  "description": "Search for indicators matching a report serial"
+                },
+                {
+                  "disabled": false,
+                  "key": "tags[]",
+                  "value": "<string>",
+                  "description": "Search for indicators matching tag(s) text"
+                },
+                {
+                  "disabled": false,
+                  "key": "tags[]",
+                  "value": "<string>",
+                  "description": "Search for indicators matching tag(s) text"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "API-Token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "5ae8c023-76a7-41e0-b671-0f688d50b466",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "indicators"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "exclude_suspect_domain",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "updated_after",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "value",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "serial[]",
+                      "value": ""
+                    },
+                    {
+                      "key": "serial[]",
+                      "value": ""
+                    },
+                    {
+                      "key": "tags[]",
+                      "value": ""
+                    },
+                    {
+                      "key": "tags[]",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-Token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2efdd6b6-09a4-481d-a4a0-8f047bf2490e",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "indicators"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "exclude_suspect_domain",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "updated_after",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "value",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "serial[]",
+                      "value": ""
+                    },
+                    {
+                      "key": "serial[]",
+                      "value": ""
+                    },
+                    {
+                      "key": "tags[]",
+                      "value": ""
+                    },
+                    {
+                      "key": "tags[]",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-Token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "96404e3e-3fec-49db-a87d-a324086a7139",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "indicators"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "exclude_suspect_domain",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "updated_after",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "value",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "serial[]",
+                      "value": ""
+                    },
+                    {
+                      "key": "serial[]",
+                      "value": ""
+                    },
+                    {
+                      "key": "tags[]",
+                      "value": ""
+                    },
+                    {
+                      "key": "tags[]",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-Token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e380f6e2-b89b-4749-a21a-47ad525e3ffa",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "indicators"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "exclude_suspect_domain",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "updated_after",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "value",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "serial[]",
+                      "value": ""
+                    },
+                    {
+                      "key": "serial[]",
+                      "value": ""
+                    },
+                    {
+                      "key": "tags[]",
+                      "value": ""
+                    },
+                    {
+                      "key": "tags[]",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-Token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5c24f2f8-dd82-4b79-a753-924031664d56",
+          "name": "Returns a paginated stix2 bundle of indicators",
+          "request": {
+            "name": "Returns a paginated stix2 bundle of indicators",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "indicators.stix2"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<string>",
+                  "description": "Page number (default 1)"
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<string>",
+                  "description": "Page size (default 500) (must be less than 1001)"
+                },
+                {
+                  "disabled": false,
+                  "key": "updated_after",
+                  "value": "<string>",
+                  "description": "UTC timestamp in YYYY-mm-dd (optionally with HH:mm:ss) to filter to recent indicators"
+                },
+                {
+                  "disabled": false,
+                  "key": "value",
+                  "value": "<string>",
+                  "description": "Search for indicators that match a specific value"
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "Search for indicators of a specific type"
+                },
+                {
+                  "disabled": false,
+                  "key": "serial[]",
+                  "value": "<string>",
+                  "description": "Search for indicators matching a report serial"
+                },
+                {
+                  "disabled": false,
+                  "key": "serial[]",
+                  "value": "<string>",
+                  "description": "Search for indicators matching a report serial"
+                },
+                {
+                  "disabled": false,
+                  "key": "tags[]",
+                  "value": "<string>",
+                  "description": "Search for indicators matching tag(s) text"
+                },
+                {
+                  "disabled": false,
+                  "key": "tags[]",
+                  "value": "<string>",
+                  "description": "Search for indicators matching tag(s) text"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "API-Token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ae44016a-f2ea-444d-9928-1550bc41748e",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "indicators.stix2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "updated_after",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "value",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "serial[]",
+                      "value": ""
+                    },
+                    {
+                      "key": "serial[]",
+                      "value": ""
+                    },
+                    {
+                      "key": "tags[]",
+                      "value": ""
+                    },
+                    {
+                      "key": "tags[]",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-Token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Page number",
+                  "key": "X-Page",
+                  "value": ""
+                },
+                {
+                  "disabled": false,
+                  "description": "How many indicators per page",
+                  "key": "X-Page-Size",
+                  "value": ""
+                },
+                {
+                  "disabled": false,
+                  "description": "Total indicator count",
+                  "key": "X-Total",
+                  "value": ""
+                },
+                {
+                  "disabled": false,
+                  "description": "How many pages of indicators",
+                  "key": "X-Total-Pages",
+                  "value": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e4fa8174-3827-4fbd-9bf9-74b44f049c11",
+          "name": "Returns a cached stix2 bundle of the last 12 months of indicators (not available to trial users)",
+          "request": {
+            "name": "Returns a cached stix2 bundle of the last 12 months of indicators (not available to trial users)",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "indicators",
+                "stix2"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "API-Token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "0d0d7bba-21c7-4243-8908-7b2995d3aa67",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "indicators",
+                    "stix2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-Token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "da82847f-802f-49d1-91bf-29dd66cbedbc",
+    "name": "Dragos WorldView Indicators API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API access to the WorldView Reports and Indicators\n\nContact Support:\n Name: the developer\n Email: support@dragos.com",
+      "type": "text/plain"
+    }
+  }
+}
