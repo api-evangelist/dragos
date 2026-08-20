@@ -65,6 +65,8 @@ apis:
   humanURL: https://portal.dragos.com/api/v1/doc/index.html
   baseURL: https://portal.dragos.com
   tags:
+  - Product
+  tags_raw:
   - Products
   properties:
   - type: OpenAPI
