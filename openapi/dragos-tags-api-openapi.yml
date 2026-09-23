@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Dragos WorldView Indicators Tags API
+  title: Dragos WorldView Tags API
   version: v1
   description: API access to the WorldView Reports and Indicators
   contact:
@@ -44,6 +44,8 @@ paths:
           description: Unauthorized
         '403':
           description: Forbidden
+      operationId: getApiV1Tags
+      x-operation-id-source: derived
   /api/v1/tags/csv:
     get:
       summary: Returns tags in CSV format
@@ -67,6 +69,8 @@ paths:
           description: Unauthorized
         '403':
           description: Forbidden
+      operationId: getApiV1TagsCsv
+      x-operation-id-source: derived
 components:
   securitySchemes:
     api_token:

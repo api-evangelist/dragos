@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
   title: Dragos WorldView Indicators API
   version: v1
@@ -90,6 +90,8 @@ paths:
           description: Forbidden
         '429':
           description: Too Many Requests
+      operationId: getApiV1Indicators
+      x-operation-id-source: derived
   /api/v1/indicators.stix2:
     get:
       summary: Returns a paginated stix2 bundle of indicators
@@ -172,9 +174,11 @@ paths:
             X-Total-Pages:
               type: integer
               description: How many pages of indicators
+      operationId: getApiV1IndicatorsStix2
+      x-operation-id-source: derived
   /api/v1/indicators/stix2:
     get:
-      summary: Returns a cached stix2 bundle of the last 12 months of indicators (not available to trial users)
+      summary: Returns a cached stix2 bundle of the last 12 months of indicators (not…
       tags:
       - Indicators
       security:
@@ -184,6 +188,8 @@ paths:
       responses:
         '200':
           description: Success
+      operationId: getApiV1IndicatorsStix2
+      x-operation-id-source: derived
 components:
   securitySchemes:
     api_token:
