@@ -1,0 +1,12 @@
+{
+ "url": "https://portal.dragos.com/api/v1/doc/swagger.json",
+ "requested_url": "https://portal.dragos.com/api/v1/doc/swagger.json",
+ "status": 200,
+ "content_type": "application/json",
+ "bytes": 16108,
+ "sha256": "6876b284608ead270b875300fb938783ea36728f1e4cf02ab9c0c129fed6ea85",
+ "fetched_at": "2026-10-04",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "byte-identical",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the archived file is byte-identical to what the provider serves."
+}
