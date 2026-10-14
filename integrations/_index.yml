@@ -15,3 +15,28 @@
   relationship: distribution-channel
   status: not-a-workflow
   arazzo: null
+- slug: dragos-crowdstrike-own
+  label: CrowdStrike (own)
+  partner: crowdstrike
+  partner_name: CrowdStrike (own)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.crowdstrike.com/listings/dragos-endpoint-asset-enrichment-for-operational-technology-ot/
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: dragos-microsoft-sentinel-own
+  label: Microsoft Sentinel (own)
+  partner: microsoft-sentinel
+  partner_name: Microsoft Sentinel (own)
+  category: Security - Network
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Dragos
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
