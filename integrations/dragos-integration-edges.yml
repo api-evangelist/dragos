@@ -7,6 +7,9 @@ checked:
 - https://cloudsecurityalliance.org/membership/current
 - https://fidoalliance.org/certification/fido-certified-products/
 - https://www.cisa.gov/securebydesign/pledge/secure-design-pledge-signers
+- https://api.first.org/data/v1/teams
+- https://raw.githubusercontent.com/CVEProject/cve-website/dev/src/assets/data/CNAsList.json
+- https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json
 marketplace_apps: []
 edges:
 - partner_name: Microsoft Azure Marketplace
@@ -104,6 +107,45 @@ edges:
       P856 not contradicting (Kin 2026-10-20 decision 2)
   detected_by: sweep-cloud-security-star.py
   first_seen: '2026-10-20'
+- partner_name: CVE Program (CVE Numbering Authorities)
+  partner: null
+  partner_match: register
+  type: register
+  channel: standard-directory
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://www.cve.org/PartnerInformation/ListofPartners/partner/Dragos
+  category: Vulnerability disclosure (CVE Numbering Authority)
+  contract_reference:
+    register: CVE Program CNA list (github.com/CVEProject/cve-website CNAsList.json @ 239d3d9b68e0)
+    standard: CVE Program CNA Operational Rules (CVE Numbering Authority)
+    spec_file: null
+    role: cve-numbering-authority
+    registered_name: Dragos, Inc.
+    matched_domain: dragos.com
+    matched_by: domain
+    cna_id: CNA-2022-0030
+    cna_short_name: Dragos
+    cna_types:
+    - Vendor
+    - Researcher
+    cna_roles:
+    - CNA
+    scope: Dragos products and third-party products it researches related to operational technology (OT)/industrial
+      control systems (ICS) not covered by another CNA.
+    top_level_root: Cybersecurity and Infrastructure Security Agency (CISA)
+    root: Cybersecurity and Infrastructure Security Agency (CISA) Industrial Control Systems (ICS)
+    security_advisories:
+    - https://www.dragos.com/advisories/
+    disclosure_policy:
+    - https://www.dragos.com/vulnerabilities-policy
+    country: USA
+    signal_note: listing as a CVE Numbering Authority = participation (a public commitment to assign CVE IDs and
+      publish advisories for its scope); never a count of CVEs
+    detected_by: sweep-vulnerability-disclosure-cna.py
+    detected: '2026-10-22'
+  detected_by: sweep-vulnerability-disclosure-cna.py
+  first_seen: '2026-10-22'
 source:
 - crowdstrike/integrations/crowdstrike-integration-edges.yml
 - microsoft-sentinel/integrations/microsoft-sentinel-integration-edges.yml
